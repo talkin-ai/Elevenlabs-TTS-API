@@ -77,9 +77,13 @@ export default function Home() {
   return (
     <main>
       <div className="bg-white py-4 px-4 rounded-md">
-        <h3 className="text-2xl font-bold text-blue-800 uppercase mb-6">
-          Say something..
-        </h3>
+        
+     <h2 className="relative text-2xl font-semibold tracking-tight border-b sm:text-3xl scroll-m-20 first:mt-0">
+        <span className="text-3xl font-extrabold text-primary">AI</span> Voice
+        Generator
+        <BotMessageSquare className="absolute w-6 h-6 -top-4 -right-6 text-primary" />
+      </h2>
+   
 
         <div className="my-6 flex flex-col gap-4">
           <div className="flex gap-4 items-center">
