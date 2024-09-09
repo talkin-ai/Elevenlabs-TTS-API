@@ -39,17 +39,17 @@ export default function Home() {
       }
 
       
-      const blob = await res.blob();
+      const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       setAudioURL(url);
       //..
     } catch (error) {
-      setIsLoading(false);
+      setLoading(false);
       console.log("Error:", error);
       throw new Error("Failed to fetch api");
       //..
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
       
