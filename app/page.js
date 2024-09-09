@@ -7,6 +7,7 @@ export default function Home() {
   const textRef = useRef();
 
   const [audio, setAudio] = useState(null);
+  const [audioURL, setAudioURL] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [voices, setVoices] = useState([]);
 
@@ -37,16 +38,22 @@ export default function Home() {
         throw new Error("Something went wrong");
       }
 
-      const { file } = await response.json();
-
-      setAudio(file);
+      
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      setAudioURL(url);
+      //..
     } catch (error) {
-      console.log(error.message);
+      setIsLoading(false);
+      console.log("Error:", error);
+      throw new Error("Failed to fetch api");
+      //..
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
-
+      
+  
   useEffect(() => {
     async function getVoices() {
       try {
@@ -102,7 +109,9 @@ export default function Home() {
             {loading ? "Generating, please wait" : "Generate TTS"}
           </button>
 
-          {audio && <audio autoPlay controls src={audio} />}
+          {audioURL &&  (<audio controls autoPlay>
+          <source src={audioURL} type="audio/mpeg" />
+        </audio>)}
         </div>
       </div>
     </main>
