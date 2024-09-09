@@ -7,7 +7,7 @@ export default function Home() {
   const textRef = useRef();
 
   const [audio, setAudio] = useState(null);
-  const [audioURL, setAudioURL] = useState<string>("");
+  const [audioURL, setAudioURL] = useState("");
   const [loading, setLoading] = useState(false);
   const [voices, setVoices] = useState([]);
 
