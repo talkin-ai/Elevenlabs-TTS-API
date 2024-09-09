@@ -81,7 +81,6 @@ export default function Home() {
      <h2 className="relative text-2xl font-semibold tracking-tight border-b sm:text-3xl scroll-m-20 first:mt-0">
         <span className="text-3xl font-extrabold text-primary">AI</span> Voice
         Generator
-        <BotMessageSquare className="absolute w-6 h-6 -top-4 -right-6 text-primary" />
       </h2>
    
 
