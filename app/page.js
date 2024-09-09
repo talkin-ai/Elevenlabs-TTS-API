@@ -102,7 +102,7 @@ export default function Home() {
             {loading ? "Generating, please wait" : "Generate TTS"}
           </button>
 
-          {audio && <audio autoPlay controls src={`audio/${audio}`} />}
+          {audio && <audio autoPlay controls src={audio} />}
         </div>
       </div>
     </main>
