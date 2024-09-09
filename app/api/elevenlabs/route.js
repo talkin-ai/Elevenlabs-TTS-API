@@ -28,16 +28,22 @@ export async function POST(request) {
       throw new Error("Something went wrong");
     }
 
-    const arrayBuffer = await response.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    const file = Math.random().toString(36).substring(7);
 
-    fs.writeFile(path.join("public", "audio", `${file}.mp3`), buffer, () => {
-      console.log("File written successfully");
+    
+    
+    const arrayBuffer = await response.arrayBuffer();
+
+    return new Response(arrayBuffer, {
+      headers: {
+        "Content-Type": "audio/mpeg",
+      },
+      status: 200,
     });
 
-    return new Response(JSON.stringify({ file: `${file}.mp3` }));
+    //...
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }));
+    console.log({ Error: error });
+    throw new Error("Failed to fetch api: generate");
   }
+
 }
