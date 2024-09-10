@@ -107,9 +107,9 @@ export default function Home() {
     
     
         <div className="my-6 flex flex-col gap-4">
-          <div className="flex gap-4 items-center">
+          <div className="flex text-white gap-4 items-center">
             <label>Select a Voice:</label>
-            <select ref={voiceRef} className="bg-[#5BBCFF] py-2 px-4 rounded-lg">
+            <select ref={voiceRef} className="bg-[#5BBCFF] text-white py-2 px-4 rounded-lg">
               {voices.map((voice) => (
                 <option key={voice.voice_id} value={voice.voice_id}>
                   {voice.name}
