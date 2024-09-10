@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-blue-300 h-[100vh] flex items-center justify-center;
+    @apply bg-[#4f3451] h-[100vh] flex items-center justify-center;
   }
 }
