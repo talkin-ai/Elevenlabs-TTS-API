@@ -129,7 +129,7 @@ export default function Home() {
           <button
             disabled={loading}
             onClick={handleGenerateTTS}
-            className="py-2 px-4 bg-blue-800 text-white rounded-lg hover:opacity-80"
+            className="py-2 px-4 bg-[#5BBCFF] text-white rounded-lg hover:opacity-80"
           >
             {loading ? "Generating, please wait" : "Generate TTS"}
           </button>
