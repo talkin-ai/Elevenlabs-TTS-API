@@ -120,7 +120,7 @@ export default function Home() {
 
           <textarea
             className="p-4 border border-blue-100 rounded-lg outline-none placeholder-gray-400 focus-within:drop-shadow-md"
-            placeholder="I've given up on you."
+            placeholder="Hello, Welcome to AIVIDOO."
             cols={50}
             rows={10}
             ref={textRef}
