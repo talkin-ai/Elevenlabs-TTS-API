@@ -5,19 +5,19 @@ import Head from 'next/head';
 
 export default function Home() {
   const voiceRef = useRef();
-
+  const textRef = useRef();
   const [audio, setAudio] = useState(null);
   const [audioURL, setAudioURL] = useState("");
   const [loading, setLoading] = useState(false);
   const [voices, setVoices] = useState([]);
-  const [text, setText] = useState("");
   
   // handler functions
   const handleGenerateTTS = async () => {
-    e.preventDefault();
+    
     const selectedVoice = voiceRef.current.value;
-  
+    const text = textRef.current.value;
     setLoading(true);
+    
     try {
       if (!text || text.trim() === "") {
         alert("Enter some text");
@@ -30,7 +30,7 @@ export default function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          message: textTrim,
+          message: text,
           voice: selectedVoice,
         }),
       });
@@ -122,13 +122,9 @@ export default function Home() {
             <textarea
             className="p-4 border border-blue-100 rounded-lg outline-none placeholder-gray-400 focus-within:drop-shadow-md"
             placeholder="Hello, Welcome to AIVIDOO."
-           value={text}
-        onChange={(e) => {
-          setText(e.target.value);
-        }}
             cols={50}
             rows={10}
-        
+            ref={textRef}   
           />
 
           <button
